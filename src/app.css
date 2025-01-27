@@ -1,79 +1,197 @@
+/* ---------------------------------------
+src/app.css
+PROJECT: lancesvelte;
+
+(c) 2025 Lance Stubblefield
+--------------------------------------- */
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    @apply w-full h-full;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 1);
+    background-color: #000000;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-.card {
-  padding: 2em;
-}
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    @apply w-screen h-screen m-0 p-2 text-center;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+main {
+    @apply w-full h-full p-8;
 }
-button:hover {
-  border-color: #646cff;
+
+/* ----------------------- main grid ----------------------- */
+.container {
+    @apply w-full h-full mx-auto ;
+
+    .topRow, .middleRow, .bottomRow {
+        @apply flex w-full;
+        height: 33%;
+    }
+
+    .topRow, .bottomRow {
+        .leftCol, .rightCol, .centerCol {
+            @apply w-4/12 p-4 text-center;
+        }
+    }
+
+    .topRow {
+        .leftCol:hover {
+            @apply shadow-2xl shadow-orange-500;
+            transform: rotate(-5deg) scale(1.2);
+            transition: transform 1s;
+
+            .screen1 {
+                @apply block w-full h-full p-2 bg-yellow-900;
+                opacity: 30%;
+            }
+        }
+
+        .centerCol:hover {
+            @apply shadow-2xl shadow-green-500;
+            transform: translatey(30%) scale(2);
+            transition: transform 1s;
+
+            .screen2 {
+                @apply block w-full h-full p-2 bg-green-900;
+                opacity: 30%;
+            }
+        }
+
+        .rightCol:hover {
+            @apply shadow-2xl shadow-purple-500;
+            transform: rotate(5deg) scale(1.2);
+            transition: transform 1s;
+
+            .screen3 {
+                @apply block w-full h-full p-2 bg-purple-900;
+                opacity: 30%;
+            }
+        }
+    }
+
+    .middleRow {
+        .leftCol, .rightCol {
+            @apply w-3/12 p-4 text-center;
+        }
+
+        .mainFocus {
+            @apply flex w-6/12 h-full cursor-pointer items-center text-center;
+        }
+
+        .leftCol:hover {
+            @apply shadow-2xl shadow-yellow-500;
+            transform: rotate(25deg) translatex(40%) scale(2.5);
+            transition: transform 1s;
+
+            .screen4 {
+                @apply block w-full h-full bg-yellow-900;
+                opacity: 30%;
+            }
+        }
+
+        .mainFocus:hover {
+            @apply p-2 shadow-2xl shadow-fuchsia-500;
+            transform: rotate(375deg) scale(2);
+            transition: transform 3s;
+            .focus {
+                display: none;
+            }
+            .screen5 {
+                @apply block w-full h-full p-2 bg-fuchsia-900;
+                opacity: 30%;
+            }
+        }
+
+        .rightCol:hover {
+            @apply shadow-2xl shadow-pink-500;
+            transform: rotate(25deg) translatex(-40%) scale(2.5);
+            transition: transform 1s;
+
+            .screen6 {
+                @apply block w-full h-full p-2 bg-pink-900;
+                opacity: 30%;
+            }
+        }
+    }
+
+    .bottomRow {
+        .leftCol:hover {
+            @apply shadow-2xl shadow-amber-500;
+            transform: rotate(5deg) scale(1.2);
+            transition: transform 1s;
+
+            .screen7 {
+                @apply block w-full h-full p-2 bg-amber-900;
+                opacity: 30%;
+            }
+        }
+
+        .centerCol:hover {
+            @apply shadow-2xl shadow-cyan-500;
+            transform: translatey(-30%) scale(2);
+            transition: transform 1s;
+
+            .screen8 {
+                @apply block w-full h-full p-2 bg-cyan-900;
+                opacity: 30%;
+            }
+        }
+
+        .rightCol:hover {
+            @apply shadow-2xl shadow-red-500;
+            transform: rotate(-5deg) scale(1.2);
+            transition: transform 1s;
+
+            .screen9 {
+                @apply block w-full h-full p-2 bg-red-900;
+                opacity: 30%;
+            }
+        }
+    }
+
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+/* ----------------------- target screens ----------------------- */
+.screen1, .screen2, .screen3, .screen4, .screen6, .screen5, .screen7, .screen8, .screen9 {
+    display: none;
+}
+.focus {
+    @apply w-fit mx-auto;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+
+    a:hover {
+        color: #747bff;
+    }
 }
