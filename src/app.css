@@ -63,34 +63,63 @@ main {
     .topRow {
         .leftCol:hover {
             @apply shadow-2xl shadow-orange-500;
-            transform: rotate(-5deg) scale(1.2);
-            transition: transform 1s;
+            transform: rotate(-18deg) scale(1.2);
+            transition: transform 2s;
 
             .screen1 {
                 @apply block w-full h-full p-2 bg-yellow-900;
                 opacity: 30%;
             }
+            .cellTag {
+                display: none;
+            }
+        }
+
+        .leftCol {
+            .cellTag {
+                @apply h-10 text-center text-2xl mt-5 text-gray-400;
+            }
+        }
+
+        .centerCol {
+            @apply flex flex-col place-content-around;
+
+            .cellTag {
+                @apply text-right pr-4 text-lg text-gray-600;
+            }
+        }
+
+        .rightCol {
+            .cellTag {
+                @apply h-10 text-center text-3xl mt-5 text-gray-500;
+            }
         }
 
         .centerCol:hover {
-            @apply shadow-2xl shadow-green-500;
-            transform: translatey(30%) scale(2);
+            @apply block shadow-2xl shadow-green-500;
+            transform: translatey(30%) scale(1.4);
             transition: transform 1s;
 
             .screen2 {
                 @apply block w-full h-full p-2 bg-green-900;
                 opacity: 30%;
             }
+            .cellTag {
+                display: none;
+            }
         }
 
         .rightCol:hover {
             @apply shadow-2xl shadow-purple-500;
-            transform: rotate(5deg) scale(1.2);
-            transition: transform 1s;
+            transform: rotate(27deg) scale(1.2) translateX(-5%) translateY(20%);
+            transition: transform .4s;
 
             .screen3 {
                 @apply block w-full h-full p-2 bg-purple-900;
                 opacity: 30%;
+            }
+            .cellTag {
+                display: none;
             }
         }
     }
@@ -106,22 +135,30 @@ main {
 
         .leftCol:hover {
             @apply shadow-2xl shadow-yellow-500;
-            transform: rotate(25deg) translatex(40%) scale(2.5);
+            transform: rotate(-15deg) translatex(60%) scale(2);
             transition: transform 1s;
 
             .screen4 {
-                @apply block w-full h-full bg-yellow-900;
-                opacity: 30%;
+                @apply block w-full h-full bg-contain;
+                background-image: url("src/assets/images/site4.webp");
+                background-repeat: no-repeat;
+                background-position: center center;
+                opacity: 70%;
+            }
+            .cellTag {
+                display: none;
             }
         }
 
         .mainFocus:hover {
             @apply p-2 shadow-2xl shadow-fuchsia-500;
-            transform: rotate(375deg) scale(2);
+            transform: rotate(360deg) scale(2) ;
             transition: transform 3s;
+
             .focus {
                 display: none;
             }
+
             .screen5 {
                 @apply block w-full h-full p-2 bg-fuchsia-900;
                 opacity: 30%;
@@ -130,12 +167,15 @@ main {
 
         .rightCol:hover {
             @apply shadow-2xl shadow-pink-500;
-            transform: rotate(25deg) translatex(-40%) scale(2.5);
+            transform: rotate(15deg) translatex(-40%) scale(2.5);
             transition: transform 1s;
 
             .screen6 {
                 @apply block w-full h-full p-2 bg-pink-900;
                 opacity: 30%;
+            }
+            .cellTag {
+                display: none;
             }
         }
     }
@@ -150,6 +190,9 @@ main {
                 @apply block w-full h-full p-2 bg-amber-900;
                 opacity: 30%;
             }
+            .cellTag {
+                display: none;
+            }
         }
 
         .centerCol:hover {
@@ -160,6 +203,9 @@ main {
             .screen8 {
                 @apply block w-full h-full p-2 bg-cyan-900;
                 opacity: 30%;
+            }
+            .cellTag {
+                display: none;
             }
         }
 
@@ -172,6 +218,9 @@ main {
                 @apply block w-full h-full p-2 bg-red-900;
                 opacity: 30%;
             }
+            .cellTag {
+                display: none;
+            }
         }
     }
 
@@ -181,8 +230,14 @@ main {
 .screen1, .screen2, .screen3, .screen4, .screen6, .screen5, .screen7, .screen8, .screen9 {
     display: none;
 }
+
 .focus {
     @apply w-fit mx-auto;
+}
+
+.cellTag {
+    @apply block;
+    /*@apply border-2 border-orange-500;*/
 }
 
 @media (prefers-color-scheme: dark) {
